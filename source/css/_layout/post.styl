@@ -72,13 +72,17 @@ if hexo-config("post_beautify.enable")
     width: 100%
     color: $light-grey
     text-align: left
-    padding-left: 8%
+    padding: 0 8%
     position: absolute
     bottom: 1.5rem
 
   #post-title
     text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.15)
     font-size: 1.5rem
+    margin-bottom: 0.4rem
+
+    .posttitle
+      line-height: 1.5
 
   i.fa.fa-angle-right
     margin: 0 0.3rem 0 0.2rem
@@ -108,12 +112,8 @@ if hexo-config("post_beautify.enable")
       background: $light-blue
       color: $white
 
-.layout
-  margin: 0 auto
-  max-width: 1000px
 
 #post-content
-  margin-bottom: 1rem
 
   if hexo-config("post_beautify.enable")
     h1,
@@ -285,6 +285,31 @@ img
   &:hover
     color: darken($highlight-aqua, 20%)
 
+.code_lang
+  position: absolute
+  font-weight: bold;
+  font-size: 0.8rem;
+  line-height: 1.4rem;
+  color: $highlight-foreground
+  left: 30px
+  z-index: 1
+  cursor: pointer
+
+.code-expand
+  position: absolute
+  top: 0
+  color: $highlight-foreground
+  padding: 7px 10px
+  z-index: 1
+  cursor: pointer
+  transition: all .3s
+  transform: rotate(0deg)
+
+.code-closed
+  transform: rotate(-90deg) !important
+  transition: all .3s
+
+
 .copy-notice
   position: absolute
   top: 0
@@ -296,7 +321,7 @@ img
 
 .post-copyright
   position: relative
-  margin-bottom: 0.4rem
+  margin: 1rem 0 0.5rem 0
   padding: 0.5rem 0.8rem
   border: 1px solid $light-grey
   transition: box-shadow 0.3s ease-in-out
@@ -334,13 +359,7 @@ img
 
 
 @media screen and (max-width: $sm)
-  .layout
-    margin: 0 30px
-    width: auto
-
   #top-container
-    // background-attachment: local
-
     #post-title
       font-size: 1rem
 
@@ -349,10 +368,8 @@ img
 
 
 @media screen and (min-width: $md)
-  .layout
+  .layout_post
     width: $content-large-width
-
-
         
 .katex-wrap
   overflow: auto
@@ -362,47 +379,30 @@ img
       
 
 // 文章字體
-#post-content p {
+#post-content p
   font-size: 1.1em
-}
 
-#post-content ol, #post-content ul {
+
+#post-content ol,
+#post-content ul 
   font-size: 1em
-}
-
-
-
-@media screen and (max-width: 1024px)
-  .layout 
-    margin: 0 15px
-    width: auto
-
 
 
 
 .layout_post 
   padding: 50px
-  -webkit-box-shadow: 0 4px 8px 6px rgba(7,17,27,0.06)
   box-shadow: 0 4px 8px 6px rgba(7,17,27,0.06)
   border-radius: 8px
-  -webkit-transition: all 0.3s
-  -moz-transition: all 0.3s
-  -o-transition: all 0.3s
-  -ms-transition: all 0.3s
   transition: all 0.3s
   background: #fff
-  margin-top: 40px
-  margin-bottom: 40px
+  margin: 40px auto
+  max-width: 1000px
 
   &:hover 
-    -webkit-box-shadow: 0 4px 12px 12px rgba(7,17,27,0.15)
     box-shadow: 0 4px 12px 12px rgba(7,17,27,0.15)
   
   img
-    margin:0 auto
     display:block
-
-
 
   .tag_share
     display: block
@@ -432,4 +432,36 @@ img
   #post
     a
       text-decoration: none
-      color: $light-blue  
+      color: $light-blue
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6
+      margin: 1rem 0 0.8rem 0
+    
+    img
+      margin: 0 auto 0.8rem 
+        
+    blockquote,
+    p
+      margin: 0 0 0.8rem 0
+
+    iframe,.note
+      margin: 0 0 0.8rem 0
+
+.layout_post,
+.layout_page
+  opacity: 1
+
+@media screen and (max-width: 1024px)
+  .layout_post
+    margin: 0 15px
+    width: auto
+
+@media screen and (max-width:768px)
+  .layout_post
+    padding: 1.8rem 1rem
+    margin: 30px 5px

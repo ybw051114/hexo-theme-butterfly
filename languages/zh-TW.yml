@@ -15,7 +15,7 @@ page:
   articles: 文章總覽
   tag: 標籤
   category: 分類
-  archives: 歸檔
+  archives: 時間軸
 
 sticky: 置頂
 no_title: 無題
@@ -74,8 +74,7 @@ donate: 打賞
 share: 分享
 bookmark:
   title: 添加書籤
-  message_prev: 按
-  message_next: 鍵將本頁加入書籤
+
 
 rightside:
   readmode_title: 閲讀模式
@@ -83,5 +82,26 @@ rightside:
   font_minus_title: 縮小字體
   translate_title: 簡繁轉換
   night_mode_title: 夜間模式
+  back_to_top: 回到頂部
+  toc: 目錄
+  scroll_to_comment: 直達評論
+  setting: 設置
 
 runtime_unit: 天
+
+copy_copyright:
+  author: 作者
+  link: 鏈接
+  source: 來源
+  info: 著作權歸作者所有。商業轉載請聯繫作者獲得授權，非商業轉載請註明出處。
+
+Snackbar:
+  bookmark:
+    message_prev: 按
+    message_next: 鍵將本頁加入書籤
+  chs_to_cht: 你已切換為繁體
+  cht_to_chs: 你已切換為簡體
+  day_to_night: 你已切換為深色模式
+  night_to_day: 你已切換為淺色模式
+
+

@@ -2,21 +2,8 @@
 @require "theme"
 @require "diff"
 
-// languages = "js" "javascript" "python" "ruby" "xml" "html" "css" "perl" "sql" "coffeescript" "java" "scala" "kotlin" "c" "c\+\+" "go" "less" "sass" "scss" "stylus" "styl" "typescript" "ts" "bash" "yml" "yaml" "gradle" "groovy" "ejs" "swig" "markdown"
 wordWrap = !hexo-config("rootConfig.highlight.line_number") && hexo-config("code_word_wrap")
 
-// loopForLanguages()
-//   for lang in languages
-//     .article-container
-//       figure.highlight
-//         &{"." + lang}
-//           table
-//             &:before
-//               content: lang
-
-// loopForLanguages()
-
-// Placeholder: $code-block
 $code-block
   overflow: auto
   margin: 1rem 0
@@ -41,6 +28,17 @@ blockquote
   color: $blockquote-color
   background-color: lighten($blockquote-padding-color,33)
 
+  p
+    margin: 0 !important
+    padding: 0.5rem 0
+
+  footer
+    padding: 0 0 0.5rem 0
+    cite 
+      &:before
+        content: "—"
+        padding: 0 .3em
+
 .article-container
   pre,
   code
@@ -62,11 +60,7 @@ blockquote
       color: $highlight-foreground
       text-shadow: none
 
-  .highlight
-    @extend $code-block
-    position: relative
-    border-radius: 1px
-
+  figure.highlight
     &:after
       position: absolute
       top: 0
@@ -75,6 +69,11 @@ blockquote
       height: 1.4rem
       background: darken($highlight-background, 5)
       content: ""
+
+  .highlight
+    @extend $code-block
+    position: relative
+    border-radius: 1px
 
     pre
       margin: 0
@@ -102,18 +101,8 @@ blockquote
       width: auto
       border: none
 
-      &:before
-        position: absolute
-        z-index: 1
-        display: inline-block
-        margin-top: -1.4rem
-        padding: 0 0.7rem
-        width: 5rem
-        color: $highlight-foreground
-        content: attr(data-content)
-        font-weight: bold
-        font-size: 0.8rem
-        line-height: 1.4rem
+      if hexo-config('highlight_shrink') == true
+        display: none
 
       &:after
         position: absolute
